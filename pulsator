@@ -1,0 +1,19 @@
+Definition pulsator :=
+  forall t:T,
+       (
+        exists p:T,
+            p in (0, 2]
+          /\
+            (
+              forall d:T,
+                 d in (0,p]
+               ->
+                 pulsator_power (t+d)
+            )
+          /\
+            vacuum_in (t+p)
+       )
+    ->
+        exists v:T,
+          vacuum_pulses_out (t+v)
+.
